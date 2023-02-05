@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Article;
-use App\Http\Controllers\ArticleController; 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
 use App\Http\Resources\ArticleResource;
 use PhpParser\ErrorHandler\Collecting;
 
@@ -34,4 +35,9 @@ Route::post('/articles', [ArticleController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/user', 'user')->middleware('auth:api');
 });

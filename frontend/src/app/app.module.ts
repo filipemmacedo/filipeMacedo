@@ -8,20 +8,24 @@ import { ArticlesComponent } from './articles/articles.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PublicModule } from './public/public.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticlesComponent,
     NewArticleComponent,
-    EditArticleComponent
+    EditArticleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PublicModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
